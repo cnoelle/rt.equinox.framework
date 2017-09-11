@@ -105,4 +105,10 @@ public class SystemBundleFile extends BundleFile {
 		}
 		return null;
 	}
+
+	@Override
+	public String toString() {
+		return "System bundle file"; //$NON-NLS-1$
+	}
+
 }

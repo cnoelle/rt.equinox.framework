@@ -73,7 +73,9 @@ public final class BundleInfo {
 		public BundleFile getBundleFile() {
 			synchronized (genMonitor) {
 				if (bundleFile == null) {
-					if (getBundleId() == 0 && content == null) {
+					// -> leads to incomplete MANIFEST info in system bundle info (missing capabilities) in unclean start
+					// if (getBundleId() == 0 && content == null) {
+					if (getBundleId() == 0) {
 						bundleFile = new SystemBundleFile();
 					} else {
 						bundleFile = getStorage().createBundleFile(content, this, isDirectory, true);
